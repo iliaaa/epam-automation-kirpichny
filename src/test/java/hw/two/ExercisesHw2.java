@@ -147,9 +147,9 @@ public class ExercisesHw2 extends AbstrSettingClass {
         assertTrue(driver.findElement(By.xpath("//ul[@class='panel-body-list logs']"
                 + "//li[contains(text(),'metal:')]")).getText().contains(selenRadio.getText()));
         assertTrue(driver.findElement(By.xpath("//ul[@class='panel-body-list logs']"
-                + "//li[contains(text(),'Wind:')]")).getText().contains(windCheckbox.getText()));
+                + "//li[contains(text(),'Wind:')]")).getText().contains("true"));
         assertTrue(driver.findElement(By.xpath("//ul[@class='panel-body-list logs']"
-                + "//li[contains(text(),'Water:')]")).getText().contains(waterCheckbox.getText()));
+                + "//li[contains(text(),'Water:')]")).getText().contains("true"));
 
     }
 }

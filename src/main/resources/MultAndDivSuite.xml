@@ -2,8 +2,8 @@
 
     <test name = "mult and div">
         <classes>
-            <class name = "hw1.MultTest" />
-            <class name = "hw1.DivTest" />
+            <class name = "Homework1.MultTest" />
+            <class name = "Homework1.DivTest" />
         </classes>
     </test>
 

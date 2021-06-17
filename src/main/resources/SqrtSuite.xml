@@ -5,7 +5,7 @@
 
     <test name = "sqrt">
         <classes>
-            <class name = "hw1.SqrtTest" />
+            <class name = "Homework1.SqrtTest" />
         </classes>
     </test>
 

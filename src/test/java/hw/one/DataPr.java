@@ -1,11 +1,11 @@
-package hw1;
-import org.testng.annotations.DataProvider;
+package hw.one;
 
 import java.lang.reflect.Method;
+import org.testng.annotations.DataProvider;
 
 public class DataPr {
     @DataProvider (name = "data-provider")
-    public Object[][] dpMethod(Method m){
+    public Object[][] dpMethod(Method m) {
         switch (m.getName()) {
             case "mult":
                 return new Object[][] {{5, 6, 30}};
@@ -17,7 +17,8 @@ public class DataPr {
                 return new Object[][] {{5, 5, 10}};
             case "sub":
                 return new Object[][] {{5, 5, 0}};
+            default:
+                return null;
         }
-        return null;
     }
 }

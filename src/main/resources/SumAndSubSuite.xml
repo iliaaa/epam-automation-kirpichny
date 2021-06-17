@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "SumAndSubSuite">
+
+    <test name = "sum and sub">
+        <classes>
+            <class name = "hw1.SumTest" />
+            <class name = "hw1.SubTest" />
+        </classes>
+    </test>
+
+</suite>

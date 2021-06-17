@@ -1,0 +1,10 @@
+<suite name = "MultAndDiv">
+
+    <test name = "mult and div">
+        <classes>
+            <class name = "hw1.MultTest" />
+            <class name = "hw1.DivTest" />
+        </classes>
+    </test>
+
+</suite>

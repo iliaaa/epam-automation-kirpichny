@@ -5,8 +5,8 @@
 
     <test name = "sum and sub">
         <classes>
-            <class name = "Homework1.SumTest" />
-            <class name = "Homework1.SubTest" />
+            <class name = "hw.one.SumTest" />
+            <class name = "hw.one.SubTest" />
         </classes>
     </test>
 

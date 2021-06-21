@@ -1,16 +1,12 @@
 package hw.two;
 
-import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
@@ -18,15 +14,6 @@ public class ExercisesHw2 extends AbstrSettingClass {
 
     @Test
     public void exercise1() {
-        setProperty("webdriver.chrome.driver",
-                "/Users/a1/Downloads/epam-automation-kirpichny/src/main/resources/chromedriver");
-
-        //1 Open BR
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
-        //2 Navigate
-        driver.manage().window().maximize();
-        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
 
         //3 Assert
         assertEquals(driver.getTitle(),

@@ -75,24 +75,18 @@ public class ExercisesHw2 extends AbstrSettingClass {
         assertEquals(driver.findElement(By.cssSelector("ul.sidebar-menu.left > li:nth-of-type(5)"))
                 .getText(), "Elements packs");
 
+        driver.findElement(By.cssSelector("div.logout")).click();
 
     }
 
     @Test
     public void exercise2() {
 
-        //1 Open BR
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-
-        //2 Navigate
-        driver.manage().window().maximize();
-        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
-
         //3 Assert
         assertEquals(driver.getTitle(), "Home Page");
 
         //4 Login
-        driver.findElement(By.cssSelector("li.dropdown.uui-profile-menu")).click();
+//        driver.findElement(By.cssSelector("li.dropdown.uui-profile-menu")).click();
         driver.findElement(By.cssSelector("[id = 'name']")).sendKeys("Roman");
         driver.findElement(By.cssSelector("[id = 'password']")).sendKeys("Jdi1234");
         driver.findElement(By.cssSelector("[id = 'login-button']")).click();

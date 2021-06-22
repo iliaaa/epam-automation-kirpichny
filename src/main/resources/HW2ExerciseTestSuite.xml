@@ -6,7 +6,6 @@
     <test name = "Exercises Hw2">
         <classes>
             <class name = "hw.two.ExercisesHw2" />
-            <class name = "hw.two.ExercisesHw2" />
         </classes>
     </test>
 

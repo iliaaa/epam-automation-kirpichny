@@ -11,7 +11,6 @@ public class ChromeDriverManager implements Driverinterface {
 
     public static WebDriver driver;
 
-    @BeforeClass
     public WebDriver setupChromeDriver() {
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
@@ -25,4 +24,6 @@ public class ChromeDriverManager implements Driverinterface {
         }
         return driver;
     }
+
+
 }

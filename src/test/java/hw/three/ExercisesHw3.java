@@ -40,4 +40,12 @@ public class ExercisesHw3 extends AbstractSettingClass {
         differentElementsPage.selectColorDropdownYellow();
     }
 
+    @Test
+    public void exFluentTest() {
+        new IndexPage(driver).loginFluent(property.getProperty("login"),
+                property.getProperty("password"))
+                .checkPageIconsAndTextFluent()
+                .iframeButtonCheckFluent();
+    }
+
 }

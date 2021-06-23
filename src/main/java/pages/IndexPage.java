@@ -82,6 +82,17 @@ public class IndexPage {
         Assert.assertTrue(logoutButton.isDisplayed(), "Logout button isn't displayed");
     }
 
+    public IndexPage loginFluent(String name, String password) {
+        userIcon.click();
+        userName.sendKeys(name);
+        userPassword.sendKeys(password);
+        loginButton.click();
+        Assert.assertTrue(logoutButton.isDisplayed(), "Logout button isn't displayed");
+        return this;
+    }
+
+
+
     public void checkPageIconsAndText() {
         //Icons check
         Assert.assertTrue(iconPractice.isDisplayed());
@@ -102,10 +113,38 @@ public class IndexPage {
                 + "wish to get more…");
     }
 
+    public IndexPage checkPageIconsAndTextFluent() {
+        //Icons check
+        Assert.assertTrue(iconPractice.isDisplayed());
+        Assert.assertTrue(iconCustom.isDisplayed());
+        Assert.assertTrue(iconMulti.isDisplayed());
+        Assert.assertTrue(iconBase.isDisplayed());
+
+        //Text check
+        assertEquals(textsUnderIcons.get(0).getText(), "To include good practices\n"
+                + "and ideas from successful\n"
+                + "EPAM project");
+        assertEquals(textsUnderIcons.get(1).getText(), "To be flexible and\n"
+                + "customizable");
+        assertEquals(textsUnderIcons.get(2).getText(), "To be multiplatform");
+        assertEquals(textsUnderIcons.get(3).getText(), "Already have good base\n"
+                + "(about 20 internal and\n"
+                + "some external projects),\n"
+                + "wish to get more…");
+        return this;
+    }
+
     public void iframeButtonCheck() {
         driver.switchTo().frame(iframe);
         Assert.assertTrue(iframeButton.isDisplayed(), "Frame Button isn't displayed");
         driver.switchTo().defaultContent();
+    }
+
+    public IndexPage iframeButtonCheckFluent() {
+        driver.switchTo().frame(iframe);
+        Assert.assertTrue(iframeButton.isDisplayed(), "Frame Button isn't displayed");
+        driver.switchTo().defaultContent();
+        return this;
     }
 
 }

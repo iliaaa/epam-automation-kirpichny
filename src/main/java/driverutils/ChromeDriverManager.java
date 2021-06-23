@@ -9,9 +9,8 @@ import org.testng.annotations.BeforeClass;
 
 public class ChromeDriverManager implements Driverinterface {
 
-    public static WebDriver driver;
-
     public WebDriver setupChromeDriver() {
+        WebDriver driver = null;
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
             //1 Open BR

@@ -74,6 +74,15 @@ public class IndexPage {
     @FindBy (css = "#frame-button")
     private WebElement iframeButton;
 
+    public void openIndexPage() {
+        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
+    }
+
+    public IndexPage openIndexPageFluent() {
+        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
+        return this;
+    }
+
     public void login(String name, String password) {
         userIcon.click();
         userName.sendKeys(name);

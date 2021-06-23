@@ -6,27 +6,15 @@ import org.testng.annotations.Test;
 import pages.DifferentElementsPage;
 import pages.IndexPage;
 
-
-public class ExercisesHw3 extends AbstractSettingClass {
+public class ExerciseHw3ex2 extends AbstractSettingClass {
 
     IndexPage indexPage;
     DifferentElementsPage differentElementsPage;
 
     @Test
-    public void ex1Test() {
-        indexPage = new IndexPage(driver);
-        assertEquals(driver.getTitle(),
-                "Home Page");
-
-        indexPage.getHeaderMenu().checkAllHeaderItems();
-        indexPage.checkPageIconsAndText();
-        indexPage.iframeButtonCheck();
-        indexPage.getLeftSideMenu().checkAllLeftMenuItems();
-    }
-
-    @Test
     public void ex2Test() {
         indexPage = new IndexPage(driver);
+        indexPage.openIndexPage();
         assertEquals(driver.getTitle(),
                 "Home Page");
         indexPage.login(property.getProperty("login"),
@@ -39,13 +27,4 @@ public class ExercisesHw3 extends AbstractSettingClass {
         differentElementsPage.clickRadioSelen();
         differentElementsPage.selectColorDropdownYellow();
     }
-
-    @Test
-    public void exFluentTest() {
-        new IndexPage(driver).loginFluent(property.getProperty("login"),
-                property.getProperty("password"))
-                .checkPageIconsAndTextFluent()
-                .iframeButtonCheckFluent();
-    }
-
 }

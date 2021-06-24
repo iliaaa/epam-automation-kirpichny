@@ -26,12 +26,12 @@ public abstract class AbstractSettingClass {
         }
     }
 
-    @BeforeMethod
+    @BeforeClass
     public void setupChromeDriverClass() {
         setupClassForChrome();
     }
 
-    @AfterMethod
+    @AfterClass
     public void afterClass() {
         driver.quit();
     }

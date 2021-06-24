@@ -46,8 +46,7 @@
         </profile>
 
         <profile>
-
-            <id>ExercisesHw2Suite</id>
+            <id>ExercisesHw2</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>

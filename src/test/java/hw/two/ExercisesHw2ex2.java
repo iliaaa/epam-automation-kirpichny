@@ -12,6 +12,9 @@ public class ExercisesHw2ex2 extends AbstrSettingClass {
     @Test
     public void exercise2() {
 
+        //2 Navigate
+        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
+
         //3 Assert
         assertEquals(driver.getTitle(), "Home Page");
 

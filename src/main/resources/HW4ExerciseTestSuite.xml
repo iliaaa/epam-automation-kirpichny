@@ -12,7 +12,6 @@
         <classes>
             <class name = "hw.four.ExerciseHw4ex1" />
             <class name = "hw.four.ExerciseHw4ex2" />
-            <class name = "hw.four.ExerciseHw4exFluent" />
         </classes>
     </test>
 

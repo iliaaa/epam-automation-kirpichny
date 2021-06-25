@@ -3,3 +3,5 @@
 /epam-automation-kirpichny.iml
 /.idea/
 /target/
+**/allure-results
+**/.allure

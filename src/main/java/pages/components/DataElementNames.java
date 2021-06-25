@@ -8,7 +8,7 @@ public class DataElementNames {
     public final static String MENU_SERVICE = "service";
     public final static String MENU_METALS_AND_COLORS = "metals & colors";
     public final static String MENU_DIFFERENT_ELEMENTS = "different elements";
-    public final static String LEFT_MENU_ELEMENTS_PACKS = "elements packs";
+    public final static String LEFT_MENU_ELEMENTS_PACKS = "elements packse";
 
     //Checkboxes
     public final static String WATER_CHECKBOX = "water";

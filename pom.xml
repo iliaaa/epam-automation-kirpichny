@@ -157,6 +157,12 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <systemProperties>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>/Users/a1/.jenkins/workspace/EPAM_TC_JOB/allure-report</value>
+                        </property>
+                    </systemProperties>
                 </configuration>
                 <dependencies>
                     <dependency>

@@ -5,7 +5,6 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 import pages.IndexPage;
 
-
 public class ExerciseHw3ex1 extends AbstractSettingClass {
 
     IndexPage indexPage;

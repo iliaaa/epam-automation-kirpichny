@@ -1,8 +1,15 @@
 package pages;
 
 import static org.testng.Assert.assertEquals;
+import static pages.components.DataElementNames.BASE_ICON_TEXT;
+import static pages.components.DataElementNames.CUSTOM_ICON_TEXT;
+import static pages.components.DataElementNames.MULTI_ICON_TEXT;
+import static pages.components.DataElementNames.PRACTICE_ICON_TEXT;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,21 +23,6 @@ public class IndexPage {
     private HeaderMenu headerMenu;
     private LeftSideMenu leftSideMenu;
     private WebDriver driver;
-
-    public IndexPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-        headerMenu = new HeaderMenu(driver);
-        leftSideMenu = new LeftSideMenu(driver);
-    }
-
-    public HeaderMenu getHeaderMenu() {
-        return headerMenu;
-    }
-
-    public LeftSideMenu getLeftSideMenu() {
-        return leftSideMenu;
-    }
 
     //Login section
     @FindBy(css = "li.dropdown.uui-profile-menu")
@@ -74,12 +66,40 @@ public class IndexPage {
     @FindBy (css = "#frame-button")
     private WebElement iframeButton;
 
+    private Properties property;
+
+    public IndexPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+        headerMenu = new HeaderMenu(driver);
+        leftSideMenu = new LeftSideMenu(driver);
+    }
+
+    public HeaderMenu getHeaderMenu() {
+        return headerMenu;
+    }
+
+    public LeftSideMenu getLeftSideMenu() {
+        return leftSideMenu;
+    }
+
+    public Properties getProperty() {
+        property = new Properties();
+        try {
+            FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
+            property.load(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return property;
+    }
+
     public void openIndexPage() {
-        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
+        driver.navigate().to(getProperty().getProperty("mainPageUrl"));
     }
 
     public IndexPage openIndexPageFluent() {
-        driver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
+        driver.navigate().to(getProperty().getProperty("mainPageUrl"));
         return this;
     }
 
@@ -100,8 +120,6 @@ public class IndexPage {
         return this;
     }
 
-
-
     public void checkPageIconsAndText() {
         //Icons check
         Assert.assertTrue(iconPractice.isDisplayed());
@@ -110,16 +128,10 @@ public class IndexPage {
         Assert.assertTrue(iconBase.isDisplayed());
 
         //Text check
-        assertEquals(textsUnderIcons.get(0).getText(), "To include good practices\n"
-                + "and ideas from successful\n"
-                + "EPAM project");
-        assertEquals(textsUnderIcons.get(1).getText(), "To be flexible and\n"
-                + "customizable");
-        assertEquals(textsUnderIcons.get(2).getText(), "To be multiplatform");
-        assertEquals(textsUnderIcons.get(3).getText(), "Already have good base\n"
-                + "(about 20 internal and\n"
-                + "some external projects),\n"
-                + "wish to get more…");
+        assertEquals(textsUnderIcons.get(0).getText(), PRACTICE_ICON_TEXT);
+        assertEquals(textsUnderIcons.get(1).getText(), CUSTOM_ICON_TEXT);
+        assertEquals(textsUnderIcons.get(2).getText(), MULTI_ICON_TEXT);
+        assertEquals(textsUnderIcons.get(3).getText(), BASE_ICON_TEXT);
     }
 
     public IndexPage checkPageIconsAndTextFluent() {

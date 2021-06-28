@@ -1,6 +1,10 @@
 package pages.components;
 
-import static pages.components.DataElementNames.*;
+import static pages.components.DataElementNames.LEFT_MENU_ELEMENTS_PACKS;
+import static pages.components.DataElementNames.MENU_CONTACT_FORM;
+import static pages.components.DataElementNames.MENU_HOME;
+import static pages.components.DataElementNames.MENU_METALS_AND_COLORS;
+import static pages.components.DataElementNames.MENU_SERVICE;
 
 import java.util.List;
 import org.openqa.selenium.WebDriver;
@@ -9,15 +13,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-
 public class LeftSideMenu {
 
-    public LeftSideMenu(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
-
     @FindBy (css = ".sidebar-menu li")
-    private List<WebElement> leftMenueItems;
+    private List<WebElement> leftMenuItems;
 
     @FindBy (css = "ul.sidebar-menu.left > li:nth-of-type(1)")
     private WebElement leftMenuHomeTab;
@@ -34,9 +33,12 @@ public class LeftSideMenu {
     @FindBy (css = "ul.sidebar-menu.left > li:nth-of-type(5)")
     private WebElement leftMenuElementPacks;
 
+    public LeftSideMenu(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 
     public void clickHeaderMenuItem(final String menuItem) {
-        for (WebElement navigationItem : leftMenueItems) {
+        for (WebElement navigationItem : leftMenuItems) {
             if (menuItem.equals(navigationItem.getText())) {
                 navigationItem.click();
                 break;

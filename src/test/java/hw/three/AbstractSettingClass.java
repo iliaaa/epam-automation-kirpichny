@@ -6,8 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.*;
-
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 public abstract class AbstractSettingClass {
     public Properties property;
@@ -17,7 +17,7 @@ public abstract class AbstractSettingClass {
         driver = new ChromeDriverManager().setupChromeDriver();
         property = new Properties();
         try {
-            FileInputStream fis = new FileInputStream("config.properties");
+            FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
             property.load(fis);
         } catch (FileNotFoundException e) {
             e.printStackTrace();

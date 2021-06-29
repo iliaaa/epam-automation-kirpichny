@@ -11,7 +11,7 @@ public class SingletonForProperties {
     public String login;
     public String password;
 
-    public SingletonForProperties() {
+    private SingletonForProperties() {
         this.property = new Properties();
         try {
             FileInputStream fis = new FileInputStream("src/main/resources/config.properties");

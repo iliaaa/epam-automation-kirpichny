@@ -2,10 +2,13 @@ package hw.four;
 
 import static org.testng.Assert.assertEquals;
 
+import hw.four.listeners.AllureListener;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners({AllureListener.class})
 public class ExerciseHw4ex2 extends AbstractSettingClass {
 
     @Feature(value = "Homework 4")

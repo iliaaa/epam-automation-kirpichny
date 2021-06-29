@@ -56,6 +56,18 @@
 
         </profile>
 
+        <profile>
+
+            <id>ExercisesHw3Suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>${project.basedir}/src/main/resources/HW3ExerciseTestSuite.xml</suite.file>
+            </properties>
+
+        </profile>
+
     </profiles>
 
     <properties>

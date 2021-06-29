@@ -17,6 +17,4 @@ public class ChromeDriverManager implements DriverInterface {
 
         return driver;
     }
-
-
 }

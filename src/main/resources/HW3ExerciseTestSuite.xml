@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "ExercisesHw3">
+
+    <test name = "Exercises Hw3">
+        <classes>
+            <class name = "hw.three.ExerciseHw3ex1" />
+            <class name = "hw.three.ExerciseHw3ex2" />
+            <class name = "hw.three.ExerciseHw3exFluent" />
+        </classes>
+    </test>
+
+</suite>

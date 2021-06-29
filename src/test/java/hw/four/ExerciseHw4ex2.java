@@ -2,10 +2,14 @@ package hw.four;
 
 import static org.testng.Assert.assertEquals;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
 public class ExerciseHw4ex2 extends AbstractSettingClass {
 
+    @Feature(value = "Homework 4")
+    @Story(value = "Exercise 2")
     @Test (description = "Login and actions on DifferentElementPage")
     public void ex2Test() {
         actionStep.openIndexPage();

@@ -3,9 +3,6 @@ package hw.four;
 import static org.testng.Assert.assertEquals;
 
 import org.testng.annotations.Test;
-import pages.DifferentElementsPage;
-import pages.IndexPage;
-
 
 public class ExerciseHw4ex2 extends AbstractSettingClass {
 
@@ -14,8 +11,7 @@ public class ExerciseHw4ex2 extends AbstractSettingClass {
         actionStep.openIndexPage();
         assertEquals(driver.getTitle(),
                 "Home Page");
-        actionStep.login(property.getProperty("login"),
-                property.getProperty("password"));
+        actionStep.login(singletonForProperties.login, singletonForProperties.password);
         actionStep.openDifferentElementsPage();
         actionStep.clickCheckboxWater();
         actionStep.clickCheckboxWind();

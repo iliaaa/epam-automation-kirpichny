@@ -5,8 +5,8 @@
 
     <test name = "Exercises Hw2">
         <classes>
-            <class name = "hw.two.ExercisesHw2" />
-            <class name = "hw.two.ExercisesHw2" />
+            <class name = "hw.two.ExercisesHw2ex1" />
+            <class name = "hw.two.ExercisesHw2ex2" />
         </classes>
     </test>
 

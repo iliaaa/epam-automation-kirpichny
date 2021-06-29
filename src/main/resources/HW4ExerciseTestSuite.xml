@@ -5,7 +5,7 @@
 <suite name = "Exercises Hw 4">
 
     <listeners>
-        <listener class-name="hw.four.listeners.AllureListener"></listener>
+        <listener class-name="hw.four.listeners.AllureListener"/>
     </listeners>
 
     <test name = "Exercises Hw4">

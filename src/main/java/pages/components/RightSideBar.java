@@ -27,7 +27,6 @@ public class RightSideBar {
             + "//li[contains(text(),'%s')]")
     private WebElement logWindowText;
 
-
     public void checkLogWindowText(String textInLog, String shouldContains) {
         Assert.assertTrue(logComponent.findElement(By.xpath(String
                 .format(FORMAT_XPATH_VALUE, textInLog)))

@@ -1,13 +1,17 @@
 package pages;
 
-import static pages.components.DataElementNames.*;
+import static pages.components.DataElementNames.DROPDOWN_YELLOW;
+import static pages.components.DataElementNames.MENU_DIFFERENT_ELEMENTS;
+import static pages.components.DataElementNames.MENU_SERVICE;
+import static pages.components.DataElementNames.SELEN_RADIO;
+import static pages.components.DataElementNames.WATER_CHECKBOX;
+import static pages.components.DataElementNames.WIND_CHECKBOX;
 
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import pages.components.DataElementNames;
 import pages.components.HeaderMenu;
 import pages.components.LeftSideMenu;
 import pages.components.RightSideBar;
@@ -17,6 +21,18 @@ public class DifferentElementsPage {
     private HeaderMenu headerMenu;
     private LeftSideMenu leftSideMenu;
     private RightSideBar rightSideBar;
+
+    @FindBy (xpath = "//div[@class='checkbox-row']//label[@class='label-checkbox']")
+    private List<WebElement> labelCheckbox;
+
+    @FindBy (xpath = "//div[@class='checkbox-row']//label[@class='label-radio']")
+    private List<WebElement> labelRadio;
+
+    @FindBy (xpath = "//select[@class='uui-form-element']//option")
+    private List<WebElement> colorsDropdownList;
+
+    @FindBy (xpath = "//div[@class='colors']")
+    private WebElement colorsDropdown;
 
     public DifferentElementsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -37,20 +53,8 @@ public class DifferentElementsPage {
         return rightSideBar;
     }
 
-    @FindBy (xpath = "//div[@class='checkbox-row']//label[@class='label-checkbox']")
-    private List<WebElement> labelCheckbox;
-
-    @FindBy (xpath = "//div[@class='checkbox-row']//label[@class='label-radio']")
-    private List<WebElement> labelRadio;
-
-    @FindBy (xpath = "//select[@class='uui-form-element']//option")
-    private List<WebElement> colorsDropdownList;
-
-    @FindBy (xpath = "//div[@class='colors']")
-    private WebElement colorsDropdown;
-
     public void openDifferentElementsPage() {
-        getHeaderMenu().clickHeaderMenuItem(DataElementNames.MENU_SERVICE);
+        getHeaderMenu().clickHeaderMenuItem(MENU_SERVICE);
         getHeaderMenu().clickHeaderMenuItem(MENU_DIFFERENT_ELEMENTS);
     }
 
@@ -120,7 +124,5 @@ public class DifferentElementsPage {
         }
         getRightSideBar().checkLogWindowText("Color", DROPDOWN_YELLOW);
     }
-
-
 
 }

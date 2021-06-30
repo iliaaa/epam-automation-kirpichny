@@ -7,12 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-
 public class HeaderMenu {
-
-    public HeaderMenu(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
 
     @FindBy (xpath = "//nav[@role='navigation']//ul//li")
     private List<WebElement> navigationHeader;
@@ -28,6 +23,10 @@ public class HeaderMenu {
 
     @FindBy (css = "div.uui-header.dark-gray a[href='metals-colors.html']")
     private WebElement headerMetalsAndColorsTab;
+
+    public HeaderMenu(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 
     public void clickHeaderMenuItem(final String menuItem) {
         for (WebElement navigationItem : navigationHeader) {

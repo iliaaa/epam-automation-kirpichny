@@ -20,4 +20,16 @@ public class DataElementNames {
     //Dropdown
     public final static String DROPDOWN_YELLOW = "yellow";
 
+    //Text under icons on Index Page
+    public final static String PRACTICE_ICON_TEXT = "To include good practices\n"
+            + "and ideas from successful\n"
+            + "EPAM project";
+    public final static String CUSTOM_ICON_TEXT = "To be flexible and\n"
+            + "customizable";
+    public final static String MULTI_ICON_TEXT = "To be multiplatform";
+    public final static String BASE_ICON_TEXT = "Already have good base\n"
+            + "(about 20 internal and\n"
+            + "some external projects),\n"
+            + "wish to get more…";
+
 }

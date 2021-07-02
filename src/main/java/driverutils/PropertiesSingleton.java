@@ -4,14 +4,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class SingletonForProperties {
-    private static SingletonForProperties instance;
+public class PropertiesSingleton {
+    private static PropertiesSingleton instance;
     private Properties property;
     public String url;
     public String login;
     public String password;
 
-    private SingletonForProperties() {
+    private PropertiesSingleton() {
         this.property = new Properties();
         try {
             FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
@@ -24,9 +24,9 @@ public class SingletonForProperties {
         this.password = property.getProperty("password");
     }
 
-    public static SingletonForProperties getInstance() {
+    public static PropertiesSingleton getInstance() {
         if (instance == null) {
-            instance = new SingletonForProperties();
+            instance = new PropertiesSingleton();
         }
         return instance;
     }

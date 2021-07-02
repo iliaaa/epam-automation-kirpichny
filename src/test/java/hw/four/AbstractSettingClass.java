@@ -11,11 +11,11 @@ import org.testng.annotations.BeforeMethod;
 
 public abstract class AbstractSettingClass {
 
-    public SingletonForProperties singletonForProperties = SingletonForProperties.getInstance();
-    public WebDriver driver;
+    protected SingletonForProperties singletonForProperties = SingletonForProperties.getInstance();
+    protected WebDriver driver;
 
-    ActionStep actionStep;
-    AssertionStep assertionStep;
+    protected ActionStep actionStep;
+    protected AssertionStep assertionStep;
 
     public void setupClassForChrome() {
         driver = new ChromeDriverManager().setupChromeDriver();

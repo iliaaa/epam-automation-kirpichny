@@ -1,9 +1,8 @@
 package hw.five.steps;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-
 import static org.testng.Assert.assertEquals;
+
+import io.cucumber.java.en.Then;
 
 public class ThenStepDef extends AbstractBaseStepDef {
 
@@ -11,5 +10,15 @@ public class ThenStepDef extends AbstractBaseStepDef {
     public void pageShouldBeOpened(String pageName) {
         assertEquals(driver.getTitle(),
                 pageName);
+    }
+
+    @Then("{int} log row has {string} text in log section")
+    public void logRowHasTextInLogSection(int firstRow, String logRow) {
+
+    }
+
+    @Then("{int} log row has {string} condition changed to {string} text in log section")
+    public void logRowHasConditionChangedToTextInLogSection(int numberOfRow, String textInLog, String shouldContains) {
+        userTable.checkLogFirstRow(numberOfRow, textInLog, shouldContains);
     }
 }

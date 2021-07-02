@@ -1,7 +1,7 @@
 package hw.four;
 
 import driverutils.ChromeDriverManager;
-import driverutils.SingletonForProperties;
+import driverutils.PropertiesSingleton;
 import hw.four.steps.ActionStep;
 import hw.four.steps.AssertionStep;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeMethod;
 
 public abstract class AbstractSettingClass {
 
-    protected SingletonForProperties singletonForProperties = SingletonForProperties.getInstance();
+    protected PropertiesSingleton singletonForProperties = PropertiesSingleton.getInstance();
     protected WebDriver driver;
 
     protected ActionStep actionStep;

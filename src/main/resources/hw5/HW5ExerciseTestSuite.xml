@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name = "Exercises Hw 5 with cucumber">
+
+    <test name = "Exercises Hw5">
+        <classes>
+            <class name = "hw.five.RunnerForCucumber" />
+        </classes>
+    </test>
+
+</suite>

@@ -9,15 +9,15 @@ import pages.UserTable;
 
 public class AbstractBaseStepDef {
 
-    public PropertiesSingleton propertiesSingleton = PropertiesSingleton.getInstance();
-    public WebDriver driver;
+    protected PropertiesSingleton propertiesSingleton = PropertiesSingleton.getInstance();
+    protected IndexPage indexPage;
+    protected DifferentElementsPage differentElementsPage;
+    protected UserTable userTable;
+    protected WebDriver driver;
 
-    IndexPage indexPage;
-    DifferentElementsPage differentElementsPage;
-    UserTable userTable;
 
     protected AbstractBaseStepDef() {
-        driver = WebDriverSingleton.getInstance().getDriver();
+        driver = WebDriverSingleton.getDriver();
         indexPage = new IndexPage(driver);
         differentElementsPage = new DifferentElementsPage(driver);
         userTable = new UserTable(driver);

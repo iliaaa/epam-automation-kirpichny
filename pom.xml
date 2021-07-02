@@ -92,6 +92,18 @@
 
         </profile>
 
+        <profile>
+
+            <id>ExercisesHw5Suite</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>${project.basedir}/src/main/resources/hw5/HW5ExerciseTestSuite.xml</suite.file>
+            </properties>
+
+        </profile>
+
     </profiles>
 
     <dependencies>
@@ -132,6 +144,12 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber6-jvm</artifactId>
             <version>${allure-testng.version}</version>
         </dependency>
 

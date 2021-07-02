@@ -8,11 +8,11 @@ public class CucumberHooks {
 
     @Before
     public void setUp() {
-        WebDriverSingleton.getInstance().getDriver();
+        WebDriverSingleton.getDriver();
     }
 
     @After
     public void tearDown() {
-        WebDriverSingleton.getInstance().getDriver().quit();
+        WebDriverSingleton.closeDriver();
     }
 }

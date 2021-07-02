@@ -1,19 +1,20 @@
 package pages;
 
 import io.cucumber.datatable.DataTable;
+import java.util.List;
+import java.util.Map;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import pages.components.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import pages.components.HeaderMenu;
+import pages.components.LeftSideMenu;
+import pages.components.RightSideBar;
 
 public class UserTable {
 
-    private List<UserInfo> userInfos = new ArrayList<>();
     private HeaderMenu headerMenu;
     private LeftSideMenu leftSideMenu;
     private RightSideBar rightSideBar;
@@ -24,29 +25,23 @@ public class UserTable {
     @FindBy(css = "table#user-table a")
     private List<WebElement> tableUsernames;
 
-    @FindBy(css = "table#user-table span")
-    private List<WebElement> tableDescriptions;
-
     @FindBy(css = "table#user-table input")
     private List<WebElement> tableCheckbox;
 
-    @FindBy(css = "table#user-table")
-    private WebElement userTable;
+    @FindBy(xpath = "//td[1]")
+    private List<WebElement> tableNumbers;
 
-    @FindBy(css = "table#user-table tr")
-    private List<WebElement> rowElements;
+    @FindBy(css = "td a")
+    private List<WebElement> tableNames;
 
-    @FindBy(css = "table#user-table tr td")
-    private List<WebElement> cellElements;
+    @FindBy(css = "td span")
+    private List<WebElement> tableDescriptions;
 
-    @FindBy(css = "div.user-descr span")
-    private List<WebElement> cellUserDescrElements;
+    @FindBy(css = "tr > td > select")
+    private List<WebElement> tableDropdown;
 
-    @FindBy(css = "table#user-table th")
-    private List<WebElement> cellNameElements;
-
-    @FindBy(css = "table#user-table th")
-    private List<WebElement> tableHead;
+    @FindBy(id = "ivan")
+    private WebElement checkboxForIvan;
 
     public UserTable(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -67,51 +62,30 @@ public class UserTable {
         }
     }
 
-    public void verifyUserInfoTable(DataTable dataTable) {
-        List<List<String>> dataTableRows = dataTable.asLists(); //outer List<> is rows, inner List<> is cells
-        for (List<String> row : dataTableRows) { //loop through every row in the DataTable input
-            int rowIdx = dataTableRows.indexOf(row);
-
-            for (String expectedCell : row) { //loop through every cell in the current DataTable row
-                int cellIdx = row.indexOf(expectedCell);
-                String actualCell = "";
-                if (rowIdx == 0 && cellIdx == 0) {
-                    actualCell = cellNameElements.get(cellIdx).getText();
-                } else if (rowIdx == 0 && cellIdx == 1) {
-                    actualCell = cellNameElements.get(cellIdx + 1).getText();
-                } else if (rowIdx == 0 && cellIdx == 2) {
-                    actualCell = cellNameElements.get(cellIdx + 1).getText();
-                } else if (rowIdx >= 1 && cellIdx == 0) {
-                    System.out.println(cellIdx);
-                    actualCell = cellElements.get(cellIdx).getText();
-                } else if (rowIdx >= 1 && cellIdx == 1) {
-                    actualCell = cellElements.get(cellIdx + 1).getText();
-                } else if (rowIdx >= 1 && cellIdx == 2) {
-                    actualCell = cellUserDescrElements.get(rowIdx - 1).getText();
-                }
-
-                /*
-                System.out.println for demonstration purposes
-                 */
-                System.out.println("DataTable row " + rowIdx + ", cell " + cellIdx + ": " + expectedCell);
-                System.out.println("Actual value on the page: " + actualCell);
-
-                Assert.assertEquals(actualCell, expectedCell);
-            }
+    public void verifyUserInfoTable(DataTable data) {
+        List<Map<String, String>> table = data.asMaps(String.class, String.class);
+        for (int i = 0; i < table.size(); i++) {
+            Assert.assertEquals(tableNumbers.get(i).getText(), table.get(i).get("Number").trim());
+            Assert.assertEquals(tableNames.get(i).getText(), table.get(i).get("User").trim());
+            Assert.assertEquals(tableDescriptions.get(i).getText().replaceAll("\\s", " "),
+                    table.get(i).get("Description").trim());
         }
     }
 
-//    public void checkSixDropdowns(int numberOfDropdowns) {
-//        Assert.assertTrue(tableDropdowns.size() == numberOfDropdowns);
-//    }
-//
-//
-//    public void checkSixUsername(int numberOfUsernames) {
-//        Assert.assertTrue(tableUsernames.size() == numberOfUsernames);
-//    }
-//
-//    public void checkSixDescriptions(int numberOfDescriptions) {
-//        Assert.assertTrue(tableDescriptions.size() == numberOfDescriptions);
-//    }
+    public void checkDropdownForRoman(DataTable data) {
+        List<Map<String, String>> table = data.asMaps(String.class, String.class);
+        for (int i = 0; i < table.size(); i++) {
+            Assert.assertEquals(new Select(tableDropdown.get(0)).getOptions().get(i).getText(),
+                    table.get(i).get("Dropdown Values").trim());
+        }
+    }
+
+    public void activateCheckboxForIvan() {
+        checkboxForIvan.click();
+    }
+
+    public void checkLogFirstRow(int numberOfRow, String textInLog, String shouldContains) {
+        rightSideBar.checkLogWindowFirstText(numberOfRow, textInLog, shouldContains);
+    }
 
 }

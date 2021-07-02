@@ -4,20 +4,20 @@ import org.openqa.selenium.WebDriver;
 
 public class WebDriverSingleton {
     private static WebDriverSingleton instance;
-    private final WebDriver driver;
+    private static WebDriver driver;
 
     private WebDriverSingleton() {
-        this.driver = new ChromeDriverManager().setupChromeDriver();
     }
 
-    public static WebDriverSingleton getInstance() {
-        if (instance == null) {
-            instance = new WebDriverSingleton();
+    public static WebDriver getDriver() {
+        if (driver == null) {
+            driver = ChromeDriverManager.setupChromeDriver();
         }
-        return instance;
+        return driver;
     }
 
-    public WebDriver getDriver() {
-        return driver;
+    public static void closeDriver() {
+        driver.quit();
+        driver = null;
     }
 }

@@ -14,6 +14,7 @@ public class RightSideBar {
     }
 
     private static final String FORMAT_XPATH_VALUE = "//ul[@class='panel-body-list logs']//li[contains(text(),'%s')]";
+    private static final String FORMAT_XPATH_FIRST_VALUE = "//ul[@class='panel-body-list logs']//li[contains(text(),'%s')]['%s']";
 
     @FindBy (xpath = "//section[@class='uui-info-panel-horizontal']"
             + "//div[text()[contains(.,'Log')]]")
@@ -30,6 +31,14 @@ public class RightSideBar {
     public void checkLogWindowText(String textInLog, String shouldContains) {
         Assert.assertTrue(logComponent.findElement(By.xpath(String
                 .format(FORMAT_XPATH_VALUE, textInLog)))
+                .getText()
+                .toLowerCase()
+                .contains(shouldContains));
+    }
+
+    public void checkLogWindowFirstText(int line, String textInLog, String shouldContains) {
+        Assert.assertTrue(logComponent.findElement(By.xpath(String
+                .format(FORMAT_XPATH_FIRST_VALUE, textInLog, line)))
                 .getText()
                 .toLowerCase()
                 .contains(shouldContains));

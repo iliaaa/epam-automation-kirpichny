@@ -17,7 +17,7 @@ public class ExerciseHw3ex2 extends AbstractSettingClass {
         indexPage.openIndexPage();
         assertEquals(driver.getTitle(),
                 "Home Page");
-        indexPage.login(singletonForProperties.login, singletonForProperties.password);
+        indexPage.login(propertiesSingleton.login, propertiesSingleton.password);
 
         differentElementsPage = new DifferentElementsPage(driver);
         differentElementsPage.openDifferentElementsPage();

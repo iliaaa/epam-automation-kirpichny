@@ -6,7 +6,7 @@ import static pages.components.DataElementNames.CUSTOM_ICON_TEXT;
 import static pages.components.DataElementNames.MULTI_ICON_TEXT;
 import static pages.components.DataElementNames.PRACTICE_ICON_TEXT;
 
-import driverutils.SingletonForProperties;
+import driverutils.PropertiesSingleton;
 import java.util.List;
 import java.util.Properties;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +22,7 @@ public class IndexPage {
     private HeaderMenu headerMenu;
     private LeftSideMenu leftSideMenu;
     private WebDriver driver;
-    private SingletonForProperties singletonForProperties = SingletonForProperties.getInstance();
+    private PropertiesSingleton propertiesSingleton = PropertiesSingleton.getInstance();
 
     //Login section
     @FindBy(css = "li.dropdown.uui-profile-menu")
@@ -84,11 +84,11 @@ public class IndexPage {
     }
 
     public void openIndexPage() {
-        driver.navigate().to(singletonForProperties.url);
+        driver.navigate().to(propertiesSingleton.url);
     }
 
     public IndexPage openIndexPageFluent() {
-        driver.navigate().to(singletonForProperties.url);
+        driver.navigate().to(propertiesSingleton.url);
         return this;
     }
 

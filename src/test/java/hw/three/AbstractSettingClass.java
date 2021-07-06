@@ -1,14 +1,14 @@
 package hw.three;
 
 import driverutils.ChromeDriverManager;
-import driverutils.SingletonForProperties;
+import driverutils.PropertiesSingleton;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public abstract class AbstractSettingClass {
 
-    public SingletonForProperties singletonForProperties = SingletonForProperties.getInstance();
+    public PropertiesSingleton propertiesSingleton = PropertiesSingleton.getInstance();
     public WebDriver driver;
 
     public void setupClassForChrome() {

@@ -5,9 +5,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class ChromeDriverManager implements DriverInterface {
+public class ChromeDriverManager {
 
-    public WebDriver setupChromeDriver() {
+    public static WebDriver setupChromeDriver() {
         WebDriver driver = null;
         WebDriverManager.chromedriver().setup();
         //1 Open BR

@@ -8,7 +8,7 @@ public class ExerciseHw3exFluent extends AbstractSettingClass {
     @Test
     public void exFluentTest() {
         new IndexPage(driver).openIndexPageFluent()
-                .loginFluent(singletonForProperties.login, singletonForProperties.password)
+                .loginFluent(propertiesSingleton.login, propertiesSingleton.password)
                 .checkPageIconsAndTextFluent()
                 .iframeButtonCheckFluent();
     }

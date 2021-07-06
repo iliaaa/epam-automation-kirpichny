@@ -3,7 +3,6 @@ package driverutils;
 import org.openqa.selenium.WebDriver;
 
 public class WebDriverSingleton {
-    private static WebDriverSingleton instance;
     private static WebDriver driver;
 
     private WebDriverSingleton() {

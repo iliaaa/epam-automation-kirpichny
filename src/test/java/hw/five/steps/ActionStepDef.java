@@ -1,11 +1,7 @@
 package hw.five.steps;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import static pages.components.DataElementNames.MENU_DIFFERENT_ELEMENTS;
-import static pages.components.DataElementNames.MENU_SERVICE;
 
 public class ActionStepDef extends AbstractBaseStepDef {
 
@@ -34,8 +30,8 @@ public class ActionStepDef extends AbstractBaseStepDef {
         indexPage.getHeaderMenu().clickHeaderMenuItem(menuItem);
     }
 
-    @When("I select 'vip' checkbox for Sergey Ivan")
-    public void selectVipCheckboxForSergeyIvan() {
-        userTable.activateCheckboxForIvan();
+    @When("I select 'vip' checkbox for {string}")
+    public void selectVipCheckboxFor(String user) {
+        userTable.activateCheckboxForUser(user);
     }
 }

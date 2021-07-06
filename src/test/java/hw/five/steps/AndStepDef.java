@@ -28,8 +28,8 @@ public class AndStepDef extends AbstractBaseStepDef {
         userTable.verifyUserInfoTable(dataTable);
     }
 
-    @And("droplist should contain values in column Type for user Roman")
-    public void droplistShouldContainValuesInColumnTypeForUserRoman(DataTable data) {
-        userTable.checkDropdownForRoman(data);
+    @And("droplist should contain values in column Type for user {string}")
+    public void droplistShouldContainValuesInColumnTypeForUser(String userName, DataTable data) {
+        userTable.checkDropdownForUser(userName, data);
     }
 }

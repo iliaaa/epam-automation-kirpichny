@@ -1,23 +1,30 @@
 package pages;
 
+import driverutils.WebDriverSingleton;
 import io.cucumber.datatable.DataTable;
 import java.util.List;
 import java.util.Map;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import pages.components.HeaderMenu;
 import pages.components.LeftSideMenu;
 import pages.components.RightSideBar;
 
 public class UserTable {
 
+    private static final String USER_CHECKBOX = "//td[a[text() = '%s']]/following-sibling::td//label";
+    private static final String USER_DROPDOWN = "//td[a[text() = '%s']]/preceding-sibling::td//select";
+
     private HeaderMenu headerMenu;
     private LeftSideMenu leftSideMenu;
     private RightSideBar rightSideBar;
+    private SoftAssert softAssert = new SoftAssert();
 
     @FindBy(css = "table#user-table select")
     private List<WebElement> tableDropdowns;
@@ -65,23 +72,28 @@ public class UserTable {
     public void verifyUserInfoTable(DataTable data) {
         List<Map<String, String>> table = data.asMaps(String.class, String.class);
         for (int i = 0; i < table.size(); i++) {
-            Assert.assertEquals(tableNumbers.get(i).getText(), table.get(i).get("Number").trim());
-            Assert.assertEquals(tableNames.get(i).getText(), table.get(i).get("User").trim());
-            Assert.assertEquals(tableDescriptions.get(i).getText().replaceAll("\\s", " "),
+            softAssert.assertEquals(tableNumbers.get(i).getText(), table.get(i).get("Number").trim());
+            softAssert.assertEquals(tableNames.get(i).getText(), table.get(i).get("User").trim());
+            softAssert.assertEquals(tableDescriptions.get(i).getText().replaceAll("\\s", " "),
                     table.get(i).get("Description").trim());
+            softAssert.assertAll();
         }
     }
 
-    public void checkDropdownForRoman(DataTable data) {
+    public void checkDropdownForUser(String userName, DataTable data) {
         List<Map<String, String>> table = data.asMaps(String.class, String.class);
+        WebElement dropdownUser = WebDriverSingleton
+                .getDriver()
+                .findElement(By.xpath(String.format(USER_DROPDOWN, userName)));
+        System.out.println(dropdownUser.getText());
         for (int i = 0; i < table.size(); i++) {
-            Assert.assertEquals(new Select(tableDropdown.get(0)).getOptions().get(i).getText(),
+            Assert.assertEquals(new Select(dropdownUser).getOptions().get(i).getText(),
                     table.get(i).get("Dropdown Values").trim());
         }
     }
 
-    public void activateCheckboxForIvan() {
-        checkboxForIvan.click();
+    public void activateCheckboxForUser(String userName) {
+        WebDriverSingleton.getDriver().findElement(By.xpath(String.format(USER_CHECKBOX, userName))).click();
     }
 
     public void checkLogFirstRow(int numberOfRow, String textInLog, String shouldContains) {

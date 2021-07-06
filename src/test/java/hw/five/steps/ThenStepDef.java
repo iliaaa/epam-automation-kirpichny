@@ -12,11 +12,6 @@ public class ThenStepDef extends AbstractBaseStepDef {
                 pageName);
     }
 
-    @Then("{int} log row has {string} text in log section")
-    public void logRowHasTextInLogSection(int firstRow, String logRow) {
-
-    }
-
     @Then("{int} log row has {string} condition changed to {string} text in log section")
     public void logRowHasConditionChangedToTextInLogSection(int numberOfRow, String textInLog, String shouldContains) {
         userTable.checkLogFirstRow(numberOfRow, textInLog, shouldContains);

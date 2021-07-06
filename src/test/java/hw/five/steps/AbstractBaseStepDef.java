@@ -15,7 +15,6 @@ public class AbstractBaseStepDef {
     protected UserTable userTable;
     protected WebDriver driver;
 
-
     protected AbstractBaseStepDef() {
         driver = WebDriverSingleton.getDriver();
         indexPage = new IndexPage(driver);

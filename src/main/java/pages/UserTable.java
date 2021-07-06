@@ -24,7 +24,6 @@ public class UserTable {
     private HeaderMenu headerMenu;
     private LeftSideMenu leftSideMenu;
     private RightSideBar rightSideBar;
-    private SoftAssert softAssert = new SoftAssert();
 
     @FindBy(css = "table#user-table select")
     private List<WebElement> tableDropdowns;
@@ -71,13 +70,14 @@ public class UserTable {
 
     public void verifyUserInfoTable(DataTable data) {
         List<Map<String, String>> table = data.asMaps(String.class, String.class);
+        SoftAssert softAssert = new SoftAssert();
         for (int i = 0; i < table.size(); i++) {
             softAssert.assertEquals(tableNumbers.get(i).getText(), table.get(i).get("Number").trim());
             softAssert.assertEquals(tableNames.get(i).getText(), table.get(i).get("User").trim());
             softAssert.assertEquals(tableDescriptions.get(i).getText().replaceAll("\\s", " "),
                     table.get(i).get("Description").trim());
-            softAssert.assertAll();
         }
+        softAssert.assertAll();
     }
 
     public void checkDropdownForUser(String userName, DataTable data) {
